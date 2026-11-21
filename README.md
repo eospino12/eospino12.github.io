@@ -6,7 +6,8 @@ Sitio estático (HTML, CSS y JavaScript, sin compilación) listo para GitHub Pag
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | Portada: presentación, resumen de la tesis, CV y contacto |
+| `index.html` | Portada: presentación, resumen de la tesis y contacto |
+| `cv.html` | Currículum, con botón para imprimir o guardar en PDF |
 | `explorador.html` | Explorador interactivo: cuantización toroidal, traslaciones y regularidad elíptica |
 | `assets/style.css` | Colores, tipografía y diseño de ambas páginas |
 | `assets/site.js` | Cambio de idioma (ES / EN / PT), el toro de la portada y la figura de muestra |
@@ -27,9 +28,9 @@ Sitio estático (HTML, CSS y JavaScript, sin compilación) listo para GitHub Pag
 Para no publicar espacios vacíos, estos datos se dejaron fuera por ahora:
 
 - Correo: está comentado en la sección Contacto de `index.html` (busca `Correo: descomenta`).
-- Año de inicio del pregrado y fechas de Outlier AI, monitoría y divulgación: las celdas `<div class="when"></div>` vacías del CV.
+- Fechas de Outlier AI, monitoría y divulgación: las celdas `<div class="when"></div>` vacías de `cv.html`.
 - Institución y cursos de la monitoría.
-- Verificar los niveles de portugués (avanzado) e inglés (intermedio).
+- Verificar el nivel de portugués (avanzado).
 
 Si quieres marcar algo pendiente mientras editas, envuélvelo en `<span class="todo">…</span>` y se verá resaltado en amarillo. Recuerda que cada texto existe en tres idiomas (`lang="es"`, `lang="en"`, `lang="pt"`): cambia las tres versiones.
 
