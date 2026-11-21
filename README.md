@@ -27,7 +27,6 @@ Sitio estático (HTML, CSS y JavaScript, sin compilación) listo para GitHub Pag
 
 Para no publicar espacios vacíos, estos datos se dejaron fuera por ahora:
 
-- Correo: está comentado en la sección Contacto de `index.html` (busca `Correo: descomenta`).
 - Fechas de Outlier AI, monitoría y divulgación: las celdas `<div class="when"></div>` vacías de `cv.html`.
 - Institución y cursos de la monitoría.
 - Verificar el nivel de portugués (avanzado).
