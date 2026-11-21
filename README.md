@@ -23,13 +23,7 @@ Sitio estático (HTML, CSS y JavaScript, sin compilación) listo para GitHub Pag
 4. Ve a *Settings → Pages*. En *Build and deployment* elige *Deploy from a branch*, rama `main`, carpeta `/ (root)` y guarda.
 5. En uno o dos minutos la página estará en `https://eospino12.github.io`.
 
-## Datos por completar
-
-Para no publicar espacios vacíos, estos datos se dejaron fuera por ahora:
-
-- Fechas de Outlier AI, monitoría y divulgación: las celdas `<div class="when"></div>` vacías de `cv.html`.
-- Institución y cursos de la monitoría.
-- Verificar el nivel de portugués (avanzado).
+## Marcar pendientes
 
 Si quieres marcar algo pendiente mientras editas, envuélvelo en `<span class="todo">…</span>` y se verá resaltado en amarillo. Recuerda que cada texto existe en tres idiomas (`lang="es"`, `lang="en"`, `lang="pt"`): cambia las tres versiones.
 
