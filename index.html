@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Esteban Ospino | Análisis en el toro</title>
+<meta name="title-es" content="Esteban Ospino | Análisis en el toro">
+<meta name="title-en" content="Esteban Ospino | Analysis on the torus">
+<meta name="title-pt" content="Esteban Ospino | Análise no toro">
+<meta name="description" content="Esteban Ospino Tafur, matemático de la Universidad del Valle. Operadores pseudodiferenciales en el toro, análisis armónico y grupos de Lie compactos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cellipse cx=%2716%27 cy=%2716%27 rx=%2714%27 ry=%278%27 fill=%27none%27 stroke=%27%231A2236%27 stroke-width=%273%27/%3E%3Cellipse cx=%2716%27 cy=%2716%27 rx=%275%27 ry=%272%27 fill=%27%23C0305E%27/%3E%3C/svg%3E">
+<meta name="theme-color" content="#F4F5F1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+</head>
+<body data-lang="es">
+<a class="skip" href="#main">
+  <span lang="es">Ir al contenido</span><span lang="en">Skip to content</span><span lang="pt">Ir para o conteúdo</span>
+</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#main">Esteban Ospino</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#investigacion"><span lang="es">Investigación</span><span lang="en">Research</span><span lang="pt">Pesquisa</span></a>
+      <a href="explorador.html"><span lang="es">Explorador</span><span lang="en">Explorer</span><span lang="pt">Explorador</span></a>
+      <a href="#cv">CV</a>
+      <a href="#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span><span lang="pt">Contato</span></a>
+    </nav>
+    <div class="langs" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ PORTADA ============================ -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Esteban Ospino Tafur</h1>
+      <p class="lead" lang="es">Matemático de la Universidad del Valle. Estudio operadores pseudodiferenciales en el toro y quiero llevar ese análisis a los grupos de Lie compactos.</p>
+      <p class="lead" lang="en">Mathematician from Universidad del Valle. I study pseudodifferential operators on the torus and want to carry that analysis over to compact Lie groups.</p>
+      <p class="lead" lang="pt">Matemático pela Universidad del Valle. Estudo operadores pseudodiferenciais no toro e quero levar essa análise aos grupos de Lie compactos.</p>
+      <div class="actions">
+        <a class="btn primary" href="tesis-pregrado.pdf">
+          <span lang="es">Leer la tesis (PDF)</span><span lang="en">Read the thesis (PDF, Spanish)</span><span lang="pt">Ler a monografia (PDF, espanhol)</span>
+        </a>
+        <a class="btn" href="explorador.html">
+          <span lang="es">Abrir el explorador</span><span lang="en">Open the explorer</span><span lang="pt">Abrir o explorador</span>
+        </a>
+        <a class="btn" href="#cv">
+          <span lang="es">Ver el CV</span><span lang="en">See my CV</span><span lang="pt">Ver o currículo</span>
+        </a>
+      </div>
+    </div>
+
+    <figure class="phase">
+      <canvas id="torus" role="img" aria-label="Toro T² coloreado por la parte real de un carácter e_ξ"></canvas>
+      <div>
+        <div class="lattice" id="lattice" role="group" aria-label="Frecuencias ξ ∈ ℤ²"></div>
+        <div class="lattice-label">ξ ∈ ℤ²</div>
+      </div>
+      <figcaption>
+        <output id="xi-out">ξ = (3, 2)</output><br>
+        <span lang="es">El espacio de fases del toro es \(\mathbb{T}^2\times\mathbb{Z}^2\). Elige una frecuencia en la red y el toro se colorea con \(\operatorname{Re}\,e^{2\pi i x\cdot\xi}\): carmesí positivo, azul negativo. Arrastra para girarlo.</span>
+        <span lang="en">The phase space of the torus is \(\mathbb{T}^2\times\mathbb{Z}^2\). Pick a frequency on the lattice and the torus is painted with \(\operatorname{Re}\,e^{2\pi i x\cdot\xi}\): crimson positive, blue negative. Drag to rotate it.</span>
+        <span lang="pt">O espaço de fase do toro é \(\mathbb{T}^2\times\mathbb{Z}^2\). Escolha uma frequência na rede e o toro é colorido por \(\operatorname{Re}\,e^{2\pi i x\cdot\xi}\): carmesim positivo, azul negativo. Arraste para girá-lo.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ INVESTIGACIÓN ============================ -->
+<section id="investigacion">
+  <div class="wrap">
+    <h2><span lang="es">Investigación</span><span lang="en">Research</span><span lang="pt">Pesquisa</span></h2>
+
+    <p class="intro" lang="es">Mi trabajo de grado, <em>Sobre los operadores pseudodiferenciales en el toro</em> (2025), dirigido por el Dr. Julio César Delgado Valencia, estudia qué cambia en el cálculo pseudodiferencial cuando el espacio es periódico: las frecuencias pasan a ser discretas, \(\xi\in\mathbb{Z}^n\), y las derivadas en \(\xi\) se reemplazan por diferencias finitas.</p>
+    <p class="intro" lang="en">My undergraduate thesis, <em>On pseudodifferential operators on the torus</em> (2025), supervised by Dr. Julio César Delgado Valencia, looks at what changes in the pseudodifferential calculus when the space is periodic: frequencies become discrete, \(\xi\in\mathbb{Z}^n\), and derivatives in \(\xi\) are replaced by finite differences.</p>
+    <p class="intro" lang="pt">Minha monografia de graduação, <em>Sobre os operadores pseudodiferenciais no toro</em> (2025), orientada pelo Dr. Julio César Delgado Valencia, estuda o que muda no cálculo pseudodiferencial quando o espaço é periódico: as frequências passam a ser discretas, \(\xi\in\mathbb{Z}^n\), e as derivadas em \(\xi\) são substituídas por diferenças finitas.</p>
+
+    <div class="chapters">
+      <article class="chapter">
+        <div class="num"><span lang="es">Capítulo 1</span><span lang="en">Chapter 1</span><span lang="pt">Capítulo 1</span></div>
+        <div>
+          <h3><span lang="es">El toro como grupo</span><span lang="en">The torus as a group</span><span lang="pt">O toro como grupo</span></h3>
+          <p lang="es">Con el homomorfismo \(\theta\mapsto e^{2\pi i\theta}\) y el primer teorema de isomorfismos se obtiene \(\mathbb{T}^n\cong\mathbb{R}^n/\mathbb{Z}^n\), un grupo topológico compacto. Las funciones en el toro son las funciones 1-periódicas, y su análisis de Fourier vive en el retículo \(\mathbb{Z}^n\). También preparo el terreno: espacio de Schwartz, distribuciones temperadas y \(L^2(\mathbb{T}^n)\).</p>
+          <p lang="en">Using the homomorphism \(\theta\mapsto e^{2\pi i\theta}\) and the first isomorphism theorem one gets \(\mathbb{T}^n\cong\mathbb{R}^n/\mathbb{Z}^n\), a compact topological group. Functions on the torus are the 1-periodic functions, and their Fourier analysis lives on the lattice \(\mathbb{Z}^n\). This chapter also sets up the Schwartz space, tempered distributions and \(L^2(\mathbb{T}^n)\).</p>
+          <p lang="pt">Com o homomorfismo \(\theta\mapsto e^{2\pi i\theta}\) e o primeiro teorema do isomorfismo obtém-se \(\mathbb{T}^n\cong\mathbb{R}^n/\mathbb{Z}^n\), um grupo topológico compacto. As funções no toro são as funções 1-periódicas, e sua análise de Fourier vive no reticulado \(\mathbb{Z}^n\). O capítulo também prepara o espaço de Schwartz, as distribuições temperadas e \(L^2(\mathbb{T}^n)\).</p>
+        </div>
+        <div class="formula">
+          \[ \widehat{f}(\xi)=\int_{\mathbb{T}^n} e^{-2\pi i x\cdot\xi}\,f(x)\,dx \]
+          \[ f(x)=\sum_{\xi\in\mathbb{Z}^n} e^{2\pi i x\cdot\xi}\,\widehat f(\xi) \]
+          <p><span lang="es">Transformada de Fourier toroidal y su inversa.</span><span lang="en">Toroidal Fourier transform and its inverse.</span><span lang="pt">Transformada de Fourier toroidal e sua inversa.</span></p>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="num"><span lang="es">Capítulo 2</span><span lang="en">Chapter 2</span><span lang="pt">Capítulo 2</span></div>
+        <div>
+          <h3><span lang="es">Cuantización toroidal</span><span lang="en">Toroidal quantization</span><span lang="pt">Quantização toroidal</span></h3>
+          <p lang="es">Un símbolo \(a(x,\xi)\) en \(\mathbb{T}^n\times\mathbb{Z}^n\) define un operador mediante la serie de abajo. Las clases \(S^m_{\rho,\delta}(\mathbb{T}^n\times\mathbb{Z}^n)\) se describen con operadores de diferencia \(\Delta_\xi^\alpha\), y por un resultado de Ruzhansky y Turunen producen los mismos operadores que las clases de Hörmander. Trabajo ejemplos explícitos: la versión discreta de \((-\Delta)^{\nu/2}\), la conmutación de los multiplicadores de Fourier con las traslaciones y un símbolo que depende de \(x\), para el cual \(\operatorname{Op}(\sigma)\cos(2\pi x)=\sqrt2\,(1+\sin 2\pi x)\cos 2\pi x\).</p>
+          <p lang="en">A symbol \(a(x,\xi)\) on \(\mathbb{T}^n\times\mathbb{Z}^n\) defines an operator through the series below. The classes \(S^m_{\rho,\delta}(\mathbb{T}^n\times\mathbb{Z}^n)\) are described with difference operators \(\Delta_\xi^\alpha\), and by a result of Ruzhansky and Turunen they give the same operators as Hörmander's classes. I work out explicit examples: the discrete \((-\Delta)^{\nu/2}\), the commutation of Fourier multipliers with translations, and an \(x\)-dependent symbol for which \(\operatorname{Op}(\sigma)\cos(2\pi x)=\sqrt2\,(1+\sin 2\pi x)\cos 2\pi x\).</p>
+          <p lang="pt">Um símbolo \(a(x,\xi)\) em \(\mathbb{T}^n\times\mathbb{Z}^n\) define um operador pela série abaixo. As classes \(S^m_{\rho,\delta}(\mathbb{T}^n\times\mathbb{Z}^n)\) são descritas com operadores de diferença \(\Delta_\xi^\alpha\) e, por um resultado de Ruzhansky e Turunen, geram os mesmos operadores que as classes de Hörmander. Trabalho exemplos explícitos: a versão discreta de \((-\Delta)^{\nu/2}\), a comutação dos multiplicadores de Fourier com as translações e um símbolo que depende de \(x\), para o qual \(\operatorname{Op}(\sigma)\cos(2\pi x)=\sqrt2\,(1+\sin 2\pi x)\cos 2\pi x\).</p>
+        </div>
+        <div class="formula">
+          \[ \operatorname{Op}(a)f(x)=\sum_{\xi\in\mathbb{Z}^n} e^{2\pi i x\cdot\xi}\,a(x,\xi)\,\widehat f(\xi) \]
+          \[ \bigl|\Delta_\xi^\alpha\partial_x^\beta a(x,\xi)\bigr|\le C_{\alpha\beta}\,\langle\xi\rangle^{m-\rho|\alpha|+\delta|\beta|} \]
+          <p><span lang="es">La cuantización y la desigualdad que define la clase \(S^m_{\rho,\delta}\).</span><span lang="en">The quantization and the inequality defining the class \(S^m_{\rho,\delta}\).</span><span lang="pt">A quantização e a desigualdade que define a classe \(S^m_{\rho,\delta}\).</span></p>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="num"><span lang="es">Capítulo 3</span><span lang="en">Chapter 3</span><span lang="pt">Capítulo 3</span></div>
+        <div>
+          <h3><span lang="es">Elipticidad y regularidad</span><span lang="en">Ellipticity and regularity</span><span lang="pt">Elipticidade e regularidade</span></h3>
+          <p lang="es">Si \(P\) es elíptico de orden \(m\), tiene una parametriz \(E\) con \(EP-I\) y \(PE-I\) regularizantes. De ahí sale la regularidad global en espacios de Sobolev: la solución gana exactamente \(m\) derivadas respecto al dato. Como aplicación muestro que \((-\Delta)^{\nu/2}+Q(x)\), con \(Q\in C^\infty(\mathbb{T}^n)\), es fuertemente elíptico y por lo tanto de Fredholm.</p>
+          <p lang="en">If \(P\) is elliptic of order \(m\), it has a parametrix \(E\) with \(EP-I\) and \(PE-I\) smoothing. Global regularity in Sobolev spaces follows: the solution gains exactly \(m\) derivatives over the data. As an application I show that \((-\Delta)^{\nu/2}+Q(x)\), with \(Q\in C^\infty(\mathbb{T}^n)\), is strongly elliptic and hence Fredholm.</p>
+          <p lang="pt">Se \(P\) é elíptico de ordem \(m\), ele tem uma parametriz \(E\) com \(EP-I\) e \(PE-I\) regularizantes. Daí segue a regularidade global em espaços de Sobolev: a solução ganha exatamente \(m\) derivadas em relação ao dado. Como aplicação mostro que \((-\Delta)^{\nu/2}+Q(x)\), com \(Q\in C^\infty(\mathbb{T}^n)\), é fortemente elíptico e, portanto, de Fredholm.</p>
+        </div>
+        <div class="formula">
+          \[ Pu=f,\quad f\in H^{s}(\mathbb{T}^n)\ \Longrightarrow\ u\in H^{s+m}(\mathbb{T}^n) \]
+          \[ \|u\|_{H^s(\mathbb{T}^n)}^2=\sum_{\xi\in\mathbb{Z}^n}\langle\xi\rangle^{2s}\,|\widehat u(\xi)|^2 \]
+          <p><span lang="es">Regularidad elíptica y la norma de Sobolev en el toro.</span><span lang="en">Elliptic regularity and the Sobolev norm on the torus.</span><span lang="pt">Regularidade elíptica e a norma de Sobolev no toro.</span></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="next">
+      <div class="num small"><span lang="es">Lo que sigue</span><span lang="en">What comes next</span><span lang="pt">Próximos passos</span></div>
+      <div>
+        <p lang="es">El toro es el caso conmutativo de una teoría más amplia: en un grupo de Lie compacto \(G\) el papel de \(\mathbb{Z}^n\) lo juega el dual unitario \(\widehat G\), y los símbolos pasan a ser matrices \(\sigma(x,[\xi])\). Quiero continuar en esa línea en la maestría, con análisis armónico no conmutativo, teoría espectral y análisis microlocal. Me interesan también las demostraciones formales en Lean 4.</p>
+        <p lang="en">The torus is the commutative case of a broader theory: on a compact Lie group \(G\) the role of \(\mathbb{Z}^n\) is played by the unitary dual \(\widehat G\), and symbols become matrices \(\sigma(x,[\xi])\). I want to continue in that direction in a master's program, with noncommutative harmonic analysis, spectral theory and microlocal analysis. I am also interested in formal proofs in Lean 4.</p>
+        <p lang="pt">O toro é o caso comutativo de uma teoria mais ampla: num grupo de Lie compacto \(G\) o papel de \(\mathbb{Z}^n\) é desempenhado pelo dual unitário \(\widehat G\), e os símbolos passam a ser matrizes \(\sigma(x,[\xi])\). Quero continuar nessa linha no mestrado, com análise harmônica não comutativa, teoria espectral e análise microlocal. Também me interessam as demonstrações formais em Lean 4.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ EXPLORADOR ============================ -->
+<section id="explorador">
+  <div class="wrap teaser">
+    <div>
+      <h2><span lang="es">Explorador interactivo</span><span lang="en">Interactive explorer</span><span lang="pt">Explorador interativo</span></h2>
+      <p lang="es">Una página donde los resultados de la tesis se pueden manipular en \(\mathbb{T}^1\). Tiene tres herramientas:</p>
+      <p lang="en">A page where the results of the thesis can be played with on \(\mathbb{T}^1\). It has three tools:</p>
+      <p lang="pt">Uma página onde os resultados da monografia podem ser manipulados em \(\mathbb{T}^1\). Ela tem três ferramentas:</p>
+      <ul lang="es">
+        <li>Cuantización: eliges una función y un símbolo, y ves \(\operatorname{Op}(\sigma)f\), su espectro y el símbolo en el espacio de fases.</li>
+        <li>Traslaciones: compruebas que los multiplicadores de Fourier conmutan con \(T_h\) y los símbolos que dependen de \(x\) no.</li>
+        <li>Regularidad elíptica: resuelves \(\bigl((-\Delta)^{\nu/2}+Q(x)\bigr)u=f\) y ves cuántas derivadas gana la solución.</li>
+      </ul>
+      <ul lang="en">
+        <li>Quantization: choose a function and a symbol, and see \(\operatorname{Op}(\sigma)f\), its spectrum and the symbol on phase space.</li>
+        <li>Translations: check that Fourier multipliers commute with \(T_h\) while \(x\)-dependent symbols do not.</li>
+        <li>Elliptic regularity: solve \(\bigl((-\Delta)^{\nu/2}+Q(x)\bigr)u=f\) and see how many derivatives the solution gains.</li>
+      </ul>
+      <ul lang="pt">
+        <li>Quantização: escolha uma função e um símbolo e veja \(\operatorname{Op}(\sigma)f\), seu espectro e o símbolo no espaço de fase.</li>
+        <li>Translações: verifique que os multiplicadores de Fourier comutam com \(T_h\) e os símbolos que dependem de \(x\) não.</li>
+        <li>Regularidade elíptica: resolva \(\bigl((-\Delta)^{\nu/2}+Q(x)\bigr)u=f\) e veja quantas derivadas a solução ganha.</li>
+      </ul>
+      <a class="btn primary" href="explorador.html"><span lang="es">Abrir el explorador</span><span lang="en">Open the explorer</span><span lang="pt">Abrir o explorador</span></a>
+    </div>
+    <figure style="margin:0">
+      <canvas id="teaser" role="img" aria-label="Onda cuadrada y su versión suavizada por un operador de orden -2"></canvas>
+      <ul class="legend" style="margin-top:.6rem">
+        <li style="color:var(--blue)"><i></i><span style="color:var(--ink-2)"><span lang="es">onda cuadrada</span><span lang="en">square wave</span><span lang="pt">onda quadrada</span> \(f\)</span></li>
+        <li style="color:var(--crimson)"><i></i><span style="color:var(--ink-2)">\(\operatorname{Op}(2\langle\xi\rangle^{-2})f\)</span></li>
+      </ul>
+      <figcaption class="small" style="margin-top:.3rem">
+        <span lang="es">Un operador de orden \(-2\) suaviza: los saltos de \(f\) desaparecen.</span>
+        <span lang="en">An operator of order \(-2\) smooths: the jumps of \(f\) disappear.</span>
+        <span lang="pt">Um operador de ordem \(-2\) suaviza: os saltos de \(f\) desaparecem.</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================ CV ============================ -->
+<section id="cv">
+  <div class="wrap">
+    <div class="cv-head">
+      <h2><span lang="es">Currículum</span><span lang="en">Curriculum vitae</span><span lang="pt">Currículo</span></h2>
+    </div>
+
+    <div class="cv-group">
+      <h3><span lang="es">Formación</span><span lang="en">Education</span><span lang="pt">Formação</span></h3>
+      <div class="cv-row">
+        <div class="when">2025</div>
+        <div class="what">
+          <strong><span lang="es">Matemático</span><span lang="en">B.Sc. in Mathematics (Matemático)</span><span lang="pt">Bacharel em Matemática (Matemático)</span></strong>,
+          Universidad del Valle, Cali, Colombia
+          <p lang="es">Pregrado en Matemáticas, Facultad de Ciencias Naturales y Exactas.</p>
+          <p lang="en">Undergraduate program in Mathematics, Faculty of Natural and Exact Sciences.</p>
+          <p lang="pt">Graduação em Matemática, Faculdade de Ciências Naturais e Exatas.</p>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when">2025</div>
+        <div class="what">
+          <strong><span lang="es">Trabajo de grado</span><span lang="en">Undergraduate thesis</span><span lang="pt">Monografia</span></strong>:
+          <em>Sobre los operadores pseudodiferenciales en el toro</em>
+          <p lang="es">Director: Dr. Julio César Delgado Valencia. Presentado el 18 de agosto de 2025. <a href="tesis-pregrado.pdf">PDF</a></p>
+          <p lang="en">Advisor: Dr. Julio César Delgado Valencia. Submitted August 18, 2025. <a href="tesis-pregrado.pdf">PDF (Spanish)</a></p>
+          <p lang="pt">Orientador: Dr. Julio César Delgado Valencia. Apresentada em 18 de agosto de 2025. <a href="tesis-pregrado.pdf">PDF (espanhol)</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-group">
+      <h3><span lang="es">Experiencia</span><span lang="en">Experience</span><span lang="pt">Experiência</span></h3>
+      <div class="cv-row">
+        <div class="when"></div>
+        <div class="what">
+          <strong><span lang="es">Anotador y revisor de datos matemáticos</span><span lang="en">Mathematics data annotator and reviewer</span><span lang="pt">Anotador e revisor de dados matemáticos</span></strong>, Outlier AI
+          <p lang="es">Trabajo remoto. Redacción y revisión de problemas y soluciones de matemáticas de nivel universitario para entrenar y evaluar modelos de inteligencia artificial.</p>
+          <p lang="en">Remote. Writing and reviewing university-level mathematics problems and solutions used to train and evaluate AI models.</p>
+          <p lang="pt">Remoto. Redação e revisão de problemas e soluções de matemática de nível universitário para treinar e avaliar modelos de inteligência artificial.</p>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when"></div>
+        <div class="what">
+          <strong><span lang="es">Monitor y tutor de matemáticas</span><span lang="en">Mathematics teaching assistant and tutor</span><span lang="pt">Monitor e professor particular de matemática</span></strong>
+          <p lang="es">Monitorías y clases particulares de cálculo y otros cursos de matemáticas.</p>
+          <p lang="en">Teaching-assistant sessions and private lessons in calculus and other mathematics courses.</p>
+          <p lang="pt">Monitorias e aulas particulares de cálculo e outras disciplinas de matemática.</p>
+        </div>
+      </div>
+      <div class="cv-row">
+        <div class="when"></div>
+        <div class="what">
+          <strong><span lang="es">Divulgación</span><span lang="en">Outreach</span><span lang="pt">Divulgação</span></strong>
+          <p lang="es">Animaciones de matemáticas hechas con Manim y FFmpeg.</p>
+          <p lang="en">Mathematics animations made with Manim and FFmpeg.</p>
+          <p lang="pt">Animações de matemática feitas com Manim e FFmpeg.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-group">
+      <h3><span lang="es">Áreas de interés</span><span lang="en">Research interests</span><span lang="pt">Áreas de interesse</span></h3>
+      <div class="cv-row">
+        <div class="when"></div>
+        <div class="what">
+          <ul class="tags" lang="es">
+            <li>Operadores pseudodiferenciales</li><li>Análisis armónico</li><li>Grupos de Lie compactos</li><li>Análisis microlocal</li><li>Ecuaciones en derivadas parciales</li><li>Teoría espectral</li><li>Teoría de números</li><li>Demostraciones formales</li>
+          </ul>
+          <ul class="tags" lang="en">
+            <li>Pseudodifferential operators</li><li>Harmonic analysis</li><li>Compact Lie groups</li><li>Microlocal analysis</li><li>Partial differential equations</li><li>Spectral theory</li><li>Number theory</li><li>Formal proofs</li>
+          </ul>
+          <ul class="tags" lang="pt">
+            <li>Operadores pseudodiferenciais</li><li>Análise harmônica</li><li>Grupos de Lie compactos</li><li>Análise microlocal</li><li>Equações diferenciais parciais</li><li>Teoria espectral</li><li>Teoria dos números</li><li>Demonstrações formais</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-group">
+      <h3><span lang="es">Herramientas</span><span lang="en">Tools</span><span lang="pt">Ferramentas</span></h3>
+      <div class="cv-row">
+        <div class="when"></div>
+        <div class="what">
+          <ul class="tags"><li>LaTeX</li><li>Python</li><li>Lean 4</li><li>MATLAB</li><li>Manim</li><li>FFmpeg</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="cv-group">
+      <h3><span lang="es">Idiomas</span><span lang="en">Languages</span><span lang="pt">Idiomas</span></h3>
+      <div class="cv-row">
+        <div class="when"><span lang="es">Español</span><span lang="en">Spanish</span><span lang="pt">Espanhol</span></div>
+        <div class="what"><span lang="es">Lengua materna</span><span lang="en">Native</span><span lang="pt">Língua materna</span></div>
+      </div>
+      <div class="cv-row">
+        <div class="when"><span lang="es">Portugués</span><span lang="en">Portuguese</span><span lang="pt">Português</span></div>
+        <div class="what"><span lang="es">Avanzado</span><span lang="en">Advanced</span><span lang="pt">Avançado</span></div>
+      </div>
+      <div class="cv-row">
+        <div class="when"><span lang="es">Inglés</span><span lang="en">English</span><span lang="pt">Inglês</span></div>
+        <div class="what"><span lang="es">Intermedio, en estudio</span><span lang="en">Intermediate, currently studying</span><span lang="pt">Intermediário, em estudo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACTO ============================ -->
+<section id="contacto" class="contact">
+  <div class="wrap">
+    <h2><span lang="es">Contacto</span><span lang="en">Contact</span><span lang="pt">Contato</span></h2>
+    <dl>
+      <!-- Correo: descomenta y escribe tu dirección
+      <dt><span lang="es">Correo</span><span lang="en">Email</span><span lang="pt">E-mail</span></dt>
+      <dd><a href="mailto:tu-correo@ejemplo.com">tu-correo@ejemplo.com</a></dd>
+      -->
+      <dt>GitHub</dt>
+      <dd><a href="https://github.com/eospino12">github.com/eospino12</a></dd>
+      <dt><span lang="es">Ubicación</span><span lang="en">Location</span><span lang="pt">Localização</span></dt>
+      <dd>Santa Marta, Colombia</dd>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>
+      <span lang="es">Última actualización: noviembre de 2026.</span>
+      <span lang="en">Last updated: November 2026.</span>
+      <span lang="pt">Última atualização: novembro de 2026.</span>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

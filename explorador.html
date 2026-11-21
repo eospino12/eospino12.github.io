@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explorador: operadores pseudodiferenciales en el toro | Esteban Ospino</title>
+<meta name="title-es" content="Explorador: operadores pseudodiferenciales en el toro | Esteban Ospino">
+<meta name="title-en" content="Explorer: pseudodifferential operators on the torus | Esteban Ospino">
+<meta name="title-pt" content="Explorador: operadores pseudodiferenciais no toro | Esteban Ospino">
+<meta name="description" content="Herramientas interactivas sobre cuantización toroidal, conmutación con traslaciones y regularidad elíptica en el toro.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Cellipse cx=%2716%27 cy=%2716%27 rx=%2714%27 ry=%278%27 fill=%27none%27 stroke=%27%231A2236%27 stroke-width=%273%27/%3E%3Cellipse cx=%2716%27 cy=%2716%27 rx=%275%27 ry=%272%27 fill=%27%23C0305E%27/%3E%3C/svg%3E">
+<meta name="theme-color" content="#F4F5F1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/katex/katex.min.css">
+<script defer src="assets/katex/katex.min.js"></script>
+<script defer src="assets/katex/auto-render.min.js"></script>
+</head>
+<body data-lang="es">
+<a class="skip" href="#main">
+  <span lang="es">Ir al contenido</span><span lang="en">Skip to content</span><span lang="pt">Ir para o conteúdo</span>
+</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="index.html">Esteban Ospino</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="index.html#investigacion"><span lang="es">Investigación</span><span lang="en">Research</span><span lang="pt">Pesquisa</span></a>
+      <a href="explorador.html" aria-current="page"><span lang="es">Explorador</span><span lang="en">Explorer</span><span lang="pt">Explorador</span></a>
+      <a href="index.html#cv">CV</a>
+      <a href="index.html#contacto"><span lang="es">Contacto</span><span lang="en">Contact</span><span lang="pt">Contato</span></a>
+    </nav>
+    <div class="langs" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="ex-intro">
+  <div class="wrap">
+    <h1><span lang="es">Operadores pseudodiferenciales en el toro</span><span lang="en">Pseudodifferential operators on the torus</span><span lang="pt">Operadores pseudodiferenciais no toro</span></h1>
+    <p lang="es">Todo aquí ocurre en \(\mathbb{T}^1=\mathbb{R}/\mathbb{Z}\). Cada función se representa por sus coeficientes de Fourier \(\widehat f(\xi)\), \(|\xi|\le N\), y cada operador por su símbolo \(\sigma(x,\xi)\). Las cuentas se hacen en tu navegador con la cuantización toroidal \(\operatorname{Op}(\sigma)f(x)=\sum_{\xi}e^{2\pi i x\xi}\sigma(x,\xi)\widehat f(\xi)\). Los números entre paréntesis remiten a la <a href="tesis-pregrado.pdf">tesis</a>.</p>
+    <p lang="en">Everything here happens on \(\mathbb{T}^1=\mathbb{R}/\mathbb{Z}\). Each function is represented by its Fourier coefficients \(\widehat f(\xi)\), \(|\xi|\le N\), and each operator by its symbol \(\sigma(x,\xi)\). The computations run in your browser with the toroidal quantization \(\operatorname{Op}(\sigma)f(x)=\sum_{\xi}e^{2\pi i x\xi}\sigma(x,\xi)\widehat f(\xi)\). Numbers in parentheses refer to the <a href="tesis-pregrado.pdf">thesis</a> (in Spanish).</p>
+    <p lang="pt">Tudo aqui acontece em \(\mathbb{T}^1=\mathbb{R}/\mathbb{Z}\). Cada função é representada por seus coeficientes de Fourier \(\widehat f(\xi)\), \(|\xi|\le N\), e cada operador pelo seu símbolo \(\sigma(x,\xi)\). As contas são feitas no seu navegador com a quantização toroidal \(\operatorname{Op}(\sigma)f(x)=\sum_{\xi}e^{2\pi i x\xi}\sigma(x,\xi)\widehat f(\xi)\). Os números entre parênteses remetem à <a href="tesis-pregrado.pdf">monografia</a> (em espanhol).</p>
+
+    <div class="tabs" role="tablist" aria-label="Herramientas">
+      <button role="tab" id="tab-q" aria-controls="tool-q" aria-selected="true"><span lang="es">Cuantización</span><span lang="en">Quantization</span><span lang="pt">Quantização</span></button>
+      <button role="tab" id="tab-t" aria-controls="tool-t" aria-selected="false" tabindex="-1"><span lang="es">Traslaciones</span><span lang="en">Translations</span><span lang="pt">Translações</span></button>
+      <button role="tab" id="tab-e" aria-controls="tool-e" aria-selected="false" tabindex="-1"><span lang="es">Regularidad elíptica</span><span lang="en">Elliptic regularity</span><span lang="pt">Regularidade elíptica</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 1. CUANTIZACIÓN =================== -->
+<section class="tool" id="tool-q" role="tabpanel" aria-labelledby="tab-q">
+  <div class="wrap tool-grid">
+    <div class="controls">
+      <div>
+        <label for="q-f"><span lang="es">Función</span><span lang="en">Function</span><span lang="pt">Função</span> \(f\)</label>
+        <select id="q-f" data-fn-select></select>
+      </div>
+      <div>
+        <label for="q-sym"><span lang="es">Símbolo</span><span lang="en">Symbol</span><span lang="pt">Símbolo</span> \(\sigma(x,\xi)\)</label>
+        <select id="q-sym"></select>
+      </div>
+      <div class="symbol-box" id="q-tex" aria-live="polite"></div>
+      <div data-show="frac">
+        <label for="q-nu"><span lang="es">Potencia</span><span lang="en">Power</span><span lang="pt">Potência</span> \(\nu\)</label>
+        <div class="slider"><input type="range" id="q-nu" min="0" max="2" step="0.05" value="1"><output id="q-nu-o"></output></div>
+      </div>
+      <div data-show="bessel xdep">
+        <label for="q-m"><span lang="es">Orden</span><span lang="en">Order</span><span lang="pt">Ordem</span> \(m\)</label>
+        <div class="slider"><input type="range" id="q-m" min="-3" max="3" step="0.1" value="-1"><output id="q-m-o"></output></div>
+      </div>
+      <div data-show="xdep">
+        <label for="q-a"><span lang="es">Amplitud</span><span lang="en">Amplitude</span><span lang="pt">Amplitude</span> \(a\)</label>
+        <div class="slider"><input type="range" id="q-a" min="0" max="1" step="0.05" value="1"><output id="q-a-o"></output></div>
+      </div>
+      <div data-show="trans">
+        <label for="q-h"><span lang="es">Traslación</span><span lang="en">Shift</span><span lang="pt">Translação</span> \(h\)</label>
+        <div class="slider"><input type="range" id="q-h" min="0" max="1" step="0.01" value="0.25"><output id="q-h-o"></output></div>
+      </div>
+      <div>
+        <label for="q-N"><span lang="es">Frecuencias</span><span lang="en">Frequencies</span><span lang="pt">Frequências</span> \(|\xi|\le N\)</label>
+        <div class="slider"><input type="range" id="q-N" min="8" max="128" step="1" value="48"><output id="q-N-o"></output></div>
+      </div>
+      <p class="note" id="q-note"></p>
+      <button type="button" class="btn" id="q-preset">
+        <span lang="es">Cargar el ejemplo 2.0.30</span><span lang="en">Load example 2.0.30</span><span lang="pt">Carregar o exemplo 2.0.30</span>
+      </button>
+    </div>
+
+    <div class="plots">
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">La función</span><span lang="en">The function</span><span lang="pt">A função</span> \(f\)</span>
+        </div>
+        <canvas id="q-plot-f" height="190"></canvas>
+        <div class="tip"></div>
+      </div>
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">El resultado</span><span lang="en">The result</span><span lang="pt">O resultado</span> \(\operatorname{Op}(\sigma)f\)</span>
+        </div>
+        <canvas id="q-plot-g" height="190"></canvas>
+        <div class="tip"></div>
+        <p class="readout" id="q-read"></p>
+      </div>
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">Coeficientes de Fourier, escala logarítmica</span><span lang="en">Fourier coefficients, log scale</span><span lang="pt">Coeficientes de Fourier, escala logarítmica</span></span>
+          <ul class="legend">
+            <li style="color:var(--blue)"><i class="sq"></i><span style="color:var(--ink-2)">\(|\widehat f(\xi)|\)</span></li>
+            <li style="color:var(--crimson)"><i class="sq"></i><span style="color:var(--ink-2)">\(|\widehat{\operatorname{Op}(\sigma)f}(\xi)|\)</span></li>
+          </ul>
+        </div>
+        <canvas id="q-spec" height="210"></canvas>
+        <div class="tip"></div>
+      </div>
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">El símbolo en el espacio de fases</span><span lang="en">The symbol on phase space</span><span lang="pt">O símbolo no espaço de fase</span> \(\mathbb{T}^1\times\mathbb{Z}\)</span>
+          <span class="small" id="q-heat-key"></span>
+        </div>
+        <canvas id="q-heat" height="230"></canvas>
+        <div class="tip"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 2. TRASLACIONES =================== -->
+<section class="tool" id="tool-t" role="tabpanel" aria-labelledby="tab-t" hidden>
+  <div class="wrap tool-grid">
+    <div class="controls">
+      <p class="note" lang="es">El corolario 2.0.26 dice que todo multiplicador de Fourier conmuta con las traslaciones \(T_hf(x)=f(x+h)\). Si el símbolo depende de \(x\), la conmutación falla.</p>
+      <p class="note" lang="en">Corollary 2.0.26 says every Fourier multiplier commutes with translations \(T_hf(x)=f(x+h)\). If the symbol depends on \(x\), commutation fails.</p>
+      <p class="note" lang="pt">O corolário 2.0.26 diz que todo multiplicador de Fourier comuta com as translações \(T_hf(x)=f(x+h)\). Se o símbolo depende de \(x\), a comutação falha.</p>
+      <div>
+        <label for="t-f"><span lang="es">Función</span><span lang="en">Function</span><span lang="pt">Função</span> \(f\)</label>
+        <select id="t-f" data-fn-select></select>
+      </div>
+      <div>
+        <label for="t-sym"><span lang="es">Operador</span><span lang="en">Operator</span><span lang="pt">Operador</span> \(P\)</label>
+        <select id="t-sym"></select>
+      </div>
+      <div class="symbol-box" id="t-tex" aria-live="polite"></div>
+      <div data-show="frac">
+        <label for="t-nu"><span lang="es">Potencia</span><span lang="en">Power</span><span lang="pt">Potência</span> \(\nu\)</label>
+        <div class="slider"><input type="range" id="t-nu" min="0" max="2" step="0.05" value="1"><output id="t-nu-o"></output></div>
+      </div>
+      <div data-show="bessel xdep">
+        <label for="t-m"><span lang="es">Orden</span><span lang="en">Order</span><span lang="pt">Ordem</span> \(m\)</label>
+        <div class="slider"><input type="range" id="t-m" min="-3" max="3" step="0.1" value="-1"><output id="t-m-o"></output></div>
+      </div>
+      <div data-show="xdep">
+        <label for="t-a"><span lang="es">Amplitud</span><span lang="en">Amplitude</span><span lang="pt">Amplitude</span> \(a\)</label>
+        <div class="slider"><input type="range" id="t-a" min="0" max="1" step="0.05" value="0.8"><output id="t-a-o"></output></div>
+      </div>
+      <div>
+        <label for="t-h"><span lang="es">Traslación</span><span lang="en">Shift</span><span lang="pt">Translação</span> \(h\)</label>
+        <div class="slider"><input type="range" id="t-h" min="0" max="1" step="0.01" value="0.3"><output id="t-h-o"></output></div>
+      </div>
+      <div>
+        <label for="t-N"><span lang="es">Frecuencias</span><span lang="en">Frequencies</span><span lang="pt">Frequências</span> \(|\xi|\le N\)</label>
+        <div class="slider"><input type="range" id="t-N" min="8" max="128" step="1" value="48"><output id="t-N-o"></output></div>
+      </div>
+    </div>
+
+    <div class="plots">
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">Trasladar y aplicar contra aplicar y trasladar</span><span lang="en">Shift then apply versus apply then shift</span><span lang="pt">Transladar e aplicar contra aplicar e transladar</span></span>
+          <ul class="legend">
+            <li style="color:var(--blue)"><i></i><span style="color:var(--ink-2)">\(P(T_hf)\)</span></li>
+            <li style="color:var(--crimson)"><i class="dash"></i><span style="color:var(--ink-2)">\(T_h(Pf)\)</span></li>
+          </ul>
+        </div>
+        <canvas id="t-plot" height="240"></canvas>
+        <div class="tip"></div>
+      </div>
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">El conmutador</span><span lang="en">The commutator</span><span lang="pt">O comutador</span> \([P,T_h]f=P(T_hf)-T_h(Pf)\)</span>
+        </div>
+        <canvas id="t-diff" height="170"></canvas>
+        <div class="tip"></div>
+        <p class="readout big-readout" id="t-read"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 3. REGULARIDAD ELÍPTICA =================== -->
+<section class="tool" id="tool-e" role="tabpanel" aria-labelledby="tab-e" hidden>
+  <div class="wrap tool-grid">
+    <div class="controls">
+      <p class="note" lang="es">Por el teorema 3.0.4, \(P=(-\Delta)^{\nu/2}+Q(x)\) es fuertemente elíptico de orden \(\nu\). Aquí \(Q(x)=q\,(1+b\cos 2\pi x)\) con \(b&lt;1\), así que \(P\) es invertible y resolvemos \(Pu=f\). Por (3.9), si \(f\in H^s\) entonces \(u\in H^{s+\nu}\).</p>
+      <p class="note" lang="en">By Theorem 3.0.4, \(P=(-\Delta)^{\nu/2}+Q(x)\) is strongly elliptic of order \(\nu\). Here \(Q(x)=q\,(1+b\cos 2\pi x)\) with \(b&lt;1\), so \(P\) is invertible and we solve \(Pu=f\). By (3.9), if \(f\in H^s\) then \(u\in H^{s+\nu}\).</p>
+      <p class="note" lang="pt">Pelo teorema 3.0.4, \(P=(-\Delta)^{\nu/2}+Q(x)\) é fortemente elíptico de ordem \(\nu\). Aqui \(Q(x)=q\,(1+b\cos 2\pi x)\) com \(b&lt;1\), então \(P\) é invertível e resolvemos \(Pu=f\). Por (3.9), se \(f\in H^s\) então \(u\in H^{s+\nu}\).</p>
+      <div>
+        <label for="e-f"><span lang="es">Dato</span><span lang="en">Data</span><span lang="pt">Dado</span> \(f\)</label>
+        <select id="e-f"></select>
+      </div>
+      <div class="symbol-box" id="e-tex" aria-live="polite"></div>
+      <div>
+        <label for="e-nu"><span lang="es">Orden</span><span lang="en">Order</span><span lang="pt">Ordem</span> \(\nu\)</label>
+        <div class="slider"><input type="range" id="e-nu" min="0.25" max="4" step="0.05" value="2"><output id="e-nu-o"></output></div>
+      </div>
+      <div>
+        <label for="e-q"><span lang="es">Potencial</span><span lang="en">Potential</span><span lang="pt">Potencial</span> \(q\)</label>
+        <div class="slider"><input type="range" id="e-q" min="0.5" max="20" step="0.5" value="4"><output id="e-q-o"></output></div>
+      </div>
+      <div>
+        <label for="e-b"><span lang="es">Variación</span><span lang="en">Variation</span><span lang="pt">Variação</span> \(b\)</label>
+        <div class="slider"><input type="range" id="e-b" min="0" max="0.9" step="0.05" value="0.5"><output id="e-b-o"></output></div>
+      </div>
+      <div>
+        <label for="e-N"><span lang="es">Frecuencias</span><span lang="en">Frequencies</span><span lang="pt">Frequências</span> \(|\xi|\le N\)</label>
+        <div class="slider"><input type="range" id="e-N" min="32" max="256" step="1" value="128"><output id="e-N-o"></output></div>
+      </div>
+    </div>
+
+    <div class="plots">
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">El dato</span><span lang="en">The data</span><span lang="pt">O dado</span> \(f\)</span>
+        </div>
+        <canvas id="e-plot-f" height="170"></canvas>
+        <div class="tip"></div>
+      </div>
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">La solución</span><span lang="en">The solution</span><span lang="pt">A solução</span> \(u=P^{-1}f\)</span>
+        </div>
+        <canvas id="e-plot-u" height="170"></canvas>
+        <div class="tip"></div>
+      </div>
+      <div class="plot">
+        <div class="plot-head">
+          <span class="plot-title"><span lang="es">Decaimiento de los coeficientes, escala log–log</span><span lang="en">Coefficient decay, log–log scale</span><span lang="pt">Decaimento dos coeficientes, escala log–log</span></span>
+          <ul class="legend">
+            <li style="color:var(--blue)"><i class="sq"></i><span style="color:var(--ink-2)">\(|\widehat f(\xi)|\)</span></li>
+            <li style="color:var(--crimson)"><i class="sq"></i><span style="color:var(--ink-2)">\(|\widehat u(\xi)|\)</span></li>
+            <li style="color:var(--ink-3)"><i class="dash"></i><span style="color:var(--ink-2)"><span lang="es">ajuste</span><span lang="en">fit</span><span lang="pt">ajuste</span> \(C|\xi|^{-p}\)</span></li>
+          </ul>
+        </div>
+        <canvas id="e-spec" height="240"></canvas>
+        <div class="tip"></div>
+        <p class="readout" id="e-read"></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>
+      <span lang="es">Esteban Ospino Tafur, 2026. Cálculos con series de Fourier truncadas en \(|\xi|\le N\); los saltos producen el fenómeno de Gibbs.</span>
+      <span lang="en">Esteban Ospino Tafur, 2026. Computations use Fourier series truncated at \(|\xi|\le N\); jumps produce the Gibbs phenomenon.</span>
+      <span lang="pt">Esteban Ospino Tafur, 2026. Cálculos com séries de Fourier truncadas em \(|\xi|\le N\); os saltos produzem o fenômeno de Gibbs.</span>
+    </p>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script src="assets/explorer.js"></script>
+</body>
+</html>
